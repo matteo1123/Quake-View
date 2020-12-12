@@ -1,0 +1,9 @@
+.marker {
+  background-image: url('./redX.png');
+  background-size: 50%;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+
+  cursor: pointer;
+}
