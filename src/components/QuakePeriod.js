@@ -1,22 +1,16 @@
 import './QuakePeriod.css'
 import { Component } from 'react';
+import {change} from '../actions';
+import {useDispatch} from 'react-redux';
 
-class QuakePeriod extends Component{
-  constructor(props) {
-    super(props);
-    this.state = {period: 'Last Hour'};
-    this.handleChange = this.handleChange.bind(this);
-  }
+function QuakePeriod () {
+    const dispatch = useDispatch();
 
-  handleChange(event) {    
-    this.setState({period: event.target.value});  
-    
-  }
 
-  render(){
+ 
     return (
       <div className="mag_filter">
-        <select className="ui dropdown selection multiple" onChange={this.handleChange} name="Period">
+        <select className="ui dropdown selection multiple" onChange={(event)=> dispatch(change(event.target.value))} name="Period">
             <option className="option" value="Last Hour">Last Hour</option>
             <option className="option" value="Last Day">Last Day</option>
             <option className="option" value="Last 7 Days">Last 7 Days</option>
@@ -24,8 +18,6 @@ class QuakePeriod extends Component{
         </select>
       </div>
     );    
-  }
-
 }
 
 export default QuakePeriod;

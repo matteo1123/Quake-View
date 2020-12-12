@@ -34,10 +34,19 @@ function add_points(data_points, map) {
         el.className = 'marker';
         el.style = `width:${marker.mag *10}px; height:${marker.mag*10}px;`
         el.title = `Magnitude of ${marker.mag}`
-      
+      try{
         // make a marker for each feature and add to the map
-        new mapboxgl.Marker(el)
+        if(marker.lon) {
+            new mapboxgl.Marker(el)
           .setLngLat([marker.lon, marker.lat])
-          .addTo(map);
+          .addTo(map);            
+        }
+
+      }
+      catch(error){
+          console.log(marker.lon, marker.lat)
+          console.log(error)
+      }
+
   });
 }
