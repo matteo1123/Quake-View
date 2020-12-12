@@ -32,6 +32,8 @@ function add_points(data_points, map) {
         // create a HTML element for each feature
         var el = document.createElement('div');
         el.className = 'marker';
+        el.style = `width:${marker.mag *10}px; height:${marker.mag*10}px;`
+        el.title = `Magnitude of ${marker.mag}`
       
         // make a marker for each feature and add to the map
         new mapboxgl.Marker(el)
