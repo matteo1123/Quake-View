@@ -1,6 +1,13 @@
-export const change = (nr) => {
+export const changePeriod = (nr) => {
     return {
-        type: 'change',
+        type: 'CHANGE_PERIOD',
         payload : nr
     };
 };
+export const changeMag = (nr) => {
+    return {
+        type: 'CHANGE_MAG',
+        payload : nr
+    };
+};
+

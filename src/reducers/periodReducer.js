@@ -1,8 +1,14 @@
-const periodReducer = (state = "Last Day", action) => {
-    if(action.type === "change") {
+const periodReducer = (state = "Hour", action) => {
+    if(action.type === "CHANGE_PERIOD") {
         return action.payload
     }
     else return state
 }
 
 export default periodReducer;
+
+//PERIODS
+// HOUR
+// DAY
+// 7
+// 30

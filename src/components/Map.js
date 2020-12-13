@@ -11,7 +11,6 @@ class Map extends Component{
       let map = '<div id="map"></div>'
     return (
         renderHTML(map)
-        
     );    
   }
 
