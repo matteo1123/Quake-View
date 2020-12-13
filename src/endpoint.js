@@ -1,5 +1,4 @@
 export default function endpoint(period="HOUR", mag="ALL") {
-    console.log(mag)
     switch(period) {
         case "HOUR":
             if(mag === "ALL"){

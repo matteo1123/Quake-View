@@ -11,7 +11,6 @@ import axios from 'axios';
 function App() {
   const period = useSelector(state => state.period)
   const mag = useSelector(state => state.mag)
-  console.log(period,mag)
   
   let data = axios.get(endpoint(period, mag))
     .then((data)=>{
@@ -28,8 +27,12 @@ function App() {
           })
       }
   })
-    window.loadMap(data_points)
-    })
+  if(true){
+      window.loadMap(data_points)
+  }else {
+    window.loadGlobe(data_points)
+  }
+      })
     .catch((er)=>console.log('ajax request failed',er))
     
 

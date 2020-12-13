@@ -8,7 +8,9 @@ import renderHTML from 'react-render-html';
 class Map extends Component{
     
   render(){
-      let map = '<div id="map"></div>'
+      let map = `
+      <div id="map"></div>
+      `
     return (
         renderHTML(map)
     );    
