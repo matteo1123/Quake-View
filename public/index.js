@@ -2,8 +2,15 @@ window.onload = () => {
     
 }
 function loadMap(data_points) {
+    let map = document.querySelector('#map')
+    let parent =document.querySelector('#map').parentNode
+    parent.removeChild(map)
+    let new_map = document.createElement('div')
+    new_map.id="map";
+    parent.appendChild(new_map)
+    
     mapboxgl.accessToken = 'pk.eyJ1IjoibWF0dGVvMTEyMyIsImEiOiJja2lrc2N5Ym0wY3ZjMnFuYXBrMDdieHc1In0.f80tKFBT0dVw1wH3eCT9aw';
-    var map = new mapboxgl.Map({
+    map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/dark-v10'
     });

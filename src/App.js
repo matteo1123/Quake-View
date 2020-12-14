@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, { useState } from 'react';
 import QuakePeriod from './components/QuakePeriod';
 import MagFilter from './components/MagFilter';
 import Map from './components/Map';
@@ -8,7 +8,10 @@ import endpoint from './endpoint';
 import axios from 'axios';
 
 
+
 function App() {
+  const [globe, setGlobe] = useState("false")
+  console.log(typeof globe)
   const period = useSelector(state => state.period)
   const mag = useSelector(state => state.mag)
   
@@ -27,7 +30,7 @@ function App() {
           })
       }
   })
-  if(true){
+  if(globe !== "true"){
       window.loadMap(data_points)
   }else {
     window.loadGlobe(data_points)
@@ -38,6 +41,11 @@ function App() {
 
   return (
     <div className="App">
+    
+    <select className="ui dropdown selection multiple" onChange={e=> setGlobe(e.target.value)}>
+    <option value="false">Map</option>
+    <option value="true">3D Globe</option>
+    </select>
       <MagFilter/>
       <Map endpoint/>
       <QuakePeriod/>
