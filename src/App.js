@@ -15,7 +15,7 @@ function App() {
   const period = useSelector(state => state.period)
   const mag = useSelector(state => state.mag)
   
-  let data = axios.get(endpoint(period, mag))
+ axios.get(endpoint(period, mag))
     .then((data)=>{
     let data_points = []
       data.data.split('\n').forEach((line, index )=> {
